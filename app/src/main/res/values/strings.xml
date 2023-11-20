@@ -62,8 +62,10 @@
     <string name="search_for_products">Search for products</string>
     <string name="signup">SignUp</string>
     <string name="already_have_an_account_login">Already have an account? Login</string>
+
     <string name="ordered_date">Ordered Date: %1$s</string>
     <string name="delivery_date">Delivery Date: %1$s</string>
     <string name="outdelivery">Out for Delivery</string>
     <string name="heyDefault">Hey !</string>
+
 </resources>

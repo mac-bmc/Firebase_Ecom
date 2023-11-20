@@ -96,8 +96,10 @@ class HomeActivity : AppCompatActivity() {
         homeViewModel.getAd()
     }
 
+
     override fun onRestart() {
         super.onRestart()
+
 
         observeCartNumber()
     }

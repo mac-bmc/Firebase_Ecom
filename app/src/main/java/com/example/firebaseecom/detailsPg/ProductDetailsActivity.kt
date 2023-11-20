@@ -97,6 +97,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                                     list.productId == productHome.productId
                                 }
                             carousalAdapter.setAd(activityProductDetailsBinding.productDetails?.productImage!!)
+
                         }
 
                         is Resource.Failed -> {
@@ -109,10 +110,12 @@ class ProductDetailsActivity : AppCompatActivity() {
                                 .show()
                         }
 
+
                         else -> {}
                     }
                 }
             }
+        }
         }
     }
 }

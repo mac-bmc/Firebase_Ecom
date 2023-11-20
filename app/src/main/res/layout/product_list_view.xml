@@ -9,6 +9,7 @@
             type="com.example.firebaseecom.model.ProductHomeModel" />
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/homeProductPrice"
         android:layout_width="match_parent"
@@ -50,6 +51,7 @@
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeProductTitle" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

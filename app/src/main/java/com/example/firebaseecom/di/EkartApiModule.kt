@@ -24,9 +24,11 @@ object EkartApiModule {
     @Singleton
     fun provideRetrofit() : EkartApi{
         val okHttpClient = OkHttpClient.Builder()
+
             .connectTimeout(2, TimeUnit.MINUTES)
             .readTimeout(2, TimeUnit.MINUTES)
             .writeTimeout(30, TimeUnit.SECONDS)
+
             .build()
         return Retrofit.Builder()
             .baseUrl(EkartApiEndPoints.END_POINT_BASE.url)

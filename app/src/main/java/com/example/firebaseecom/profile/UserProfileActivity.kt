@@ -1,5 +1,6 @@
 package com.example.firebaseecom.profile
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -75,13 +76,16 @@ class UserProfileActivity : AppCompatActivity() {
         finish()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun getUserdata() {
         profileViewModel.userDetails.observe(this, Observer {
             activityUserProfileBinding.apply {
                 userDetails = it
                 if(userDetails?.userName!!.isNotEmpty())
                 {
+
                     greetingText.text=getString(R.string.hey,userDetails?.userName)
+
                 }
                 Glide.with(this@UserProfileActivity)
                     .load(userDetails?.userImg)

@@ -99,6 +99,7 @@
 
 
         </com.google.android.material.appbar.MaterialToolbar>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -107,6 +108,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:layout_below="@id/homeToolBar"
             android:paddingRight="10dp"
             android:paddingLeft="10dp">

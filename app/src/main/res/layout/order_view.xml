@@ -3,7 +3,9 @@
     <data>
         <variable
             name="productHome"
+
             type="com.example.firebaseecom.model.ProductOrderModel" />
+
     </data>
 
 
@@ -50,11 +52,13 @@
             android:layout_toEndOf="@+id/price"
             android:layout_below="@id/productTitleText"
             android:layout_marginTop="10dp"
+
             android:layout_marginStart="10dp"
             android:textColor="@color/red"
             android:text="@{Integer.toString(productHome.component4())}"
             android:textSize="18sp"
             />
+
 
 
     </RelativeLayout>

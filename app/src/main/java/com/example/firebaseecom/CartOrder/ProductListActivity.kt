@@ -20,6 +20,7 @@ import com.example.firebaseecom.databinding.ActivityProductListBinding
 import com.example.firebaseecom.detailsPg.ProductDetailsActivity
 import com.example.firebaseecom.model.ProductHomeModel
 import com.example.firebaseecom.model.ProductOrderModel
+
 import com.example.firebaseecom.payments.ProductCheckoutActivity
 import com.example.firebaseecom.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,7 +32,9 @@ class ProductListActivity : AppCompatActivity() {
     private lateinit var activityProductListBinding: ActivityProductListBinding
     private lateinit var productListViewModel: ProductListViewModel
     val cartAdapter = ProductCartAdapter(ActivityFunctionClass())
+
     val orderAdapter = ProductOrderAdapter(navClass())
+
     var productList = arrayListOf<ProductHomeModel>()
     var dest = ""
 
@@ -44,7 +47,9 @@ class ProductListActivity : AppCompatActivity() {
         observeProducts(dest)
         activityProductListBinding.apply {
             if (dest == "orders") {
+
                 ButtonHolder.visibility= View.GONE
+
                 recyclerView.adapter = orderAdapter
             } else {
                 recyclerView.adapter = cartAdapter
@@ -82,6 +87,7 @@ class ProductListActivity : AppCompatActivity() {
     private fun observeProducts(dest: String?) {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
+
                 if (dest == "orders") {
                     productListViewModel.getProductFromOrder()
                     productListViewModel.productOrderList.collect {
@@ -106,6 +112,7 @@ class ProductListActivity : AppCompatActivity() {
                                 )
                                     .show()
                             }
+
                         }
                     }
                 } else {
@@ -170,7 +177,9 @@ class ProductListActivity : AppCompatActivity() {
         }
     }
 
+
     /*private fun deleteFromOrder(productHomeModel: ProductHomeModel) {
+
         val builder = AlertDialog.Builder(this)
         builder.setTitle(getString(R.string.cancel_your_order))
         builder.setMessage(getString(R.string.cancelOrder))
@@ -188,6 +197,7 @@ class ProductListActivity : AppCompatActivity() {
             intent.putExtra("productDetails",productOrderModel)
             startActivity(intent)
         }
+
 
     }
 }
