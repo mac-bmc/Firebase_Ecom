@@ -8,9 +8,8 @@
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
         android:layout_margin="5dp"
         android:backgroundTint="@color/white"
         android:elevation="8dp"
@@ -21,6 +20,13 @@
             android:layout_gravity="end"
             android:orientation="horizontal">
 
+            <ImageView
+                android:id="@+id/userImg"
+                android:layout_weight="0.2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/placeholder_image" />
             <TextView
                 android:id="@+id/SendText"
                 android:layout_width="wrap_content"
@@ -31,14 +37,6 @@
                 android:padding="3dp"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
-
-            <ImageView
-                android:id="@+id/userImg"
-                android:layout_weight="0.2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:src="@drawable/placeholder_image" />
 
 
         </LinearLayout>

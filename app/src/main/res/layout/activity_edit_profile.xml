@@ -94,14 +94,14 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:ems="10"
-            android:text="@{userDetails.component1()}"
+            android:text="@{userDetails.component2()}"
             android:hint="@string/username"
             android:layout_centerHorizontal="true"
             android:background="@drawable/edittext_layout"
             android:inputType="text" />
         <EditText
             android:id="@+id/editTextEmail"
-            android:text="@{userDetails.component2()}"
+            android:text="@{userDetails.component3()}"
             android:layout_marginTop="20dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -117,7 +117,7 @@
             <EditText
                 android:id="@+id/editTextPhone"
                 android:layout_width="match_parent"
-                android:text="@{userDetails.component4()}"
+                android:text="@{userDetails.component5()}"
                 android:layout_height="40dp"
                 android:ems="10"
                 android:paddingLeft="10dp"
@@ -131,7 +131,7 @@
         <EditText
             android:id="@+id/editTextAddress"
             android:layout_marginTop="20dp"
-            android:text="@{userDetails.component5()}"
+            android:text="@{userDetails.component6()}"
             android:layout_below="@id/editTextPhone"
             android:layout_width="match_parent"
             android:layout_height="100dp"

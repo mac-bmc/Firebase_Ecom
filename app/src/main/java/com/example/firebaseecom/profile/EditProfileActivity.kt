@@ -103,6 +103,7 @@ class EditProfileActivity : BaseActivity() {
     private fun getPlaceholderData() {
         activityEditProfileBinding.apply {
             userDetails = intent.extras!!.get("user") as UserModel
+            Log.d("userDeta",userDetails.toString())
             Glide.with(this@EditProfileActivity).load(userDetails?.userImg).error(R.drawable.ic_add)
                 .into(userProfileImage)
         }
@@ -147,6 +148,7 @@ class EditProfileActivity : BaseActivity() {
                         when (imgUrl) {
                             " " -> {
                                 val user = UserModel(
+                                    "",
                                     editTextUsername.text.toString(),
                                     editTextEmail.text.toString(),
                                     userDetails!!.userImg,
@@ -165,6 +167,7 @@ class EditProfileActivity : BaseActivity() {
 
                             else -> {
                                 val user = UserModel(
+                                    "",
                                     editTextUsername.text.toString(),
                                     editTextEmail.text.toString(),
                                     imgUrl,

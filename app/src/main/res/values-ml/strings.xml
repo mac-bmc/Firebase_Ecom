@@ -4,7 +4,7 @@
     <string name="homeToolBar">ഹോംടൂൾബാർ</string>
     <string name="item_description">ഇനത്തെ കുറിച്ചുള്ള വിശദീകരണം :</string>
     <string name="product_review">ഉൽപ്പന്ന അവലോകനം:</string>
-    <string name="shareMsg">Ekart-ൽ ഞാൻ കണ്ടെത്തിയ ഈ ഉൽപ്പന്നം പരിശോധിക്കുക,</string>
+    <string name="shareMsg">Ezkart-ൽ ഞാൻ കണ്ടെത്തിയ ഈ ഉൽപ്പന്നം പരിശോധിക്കുക,</string>
     <string name="yes">അതെ</string>
     <string name="submit">സമർപ്പിക്കുക</string>
     <string name="cancel">റദ്ദാക്കുക</string>
@@ -120,9 +120,9 @@
     <string name="enter_your_product_experience">Enter your product experience</string>
     <string name="view_more">View More</string>
     <string name="anonymous">Anonymous</string>
-    <string name="ekart_review_points">Ekart Review History</string>
+    <string name="ekart_review_points">Ezkart അവലോകന</string>
     <string name="you_have_done_7_ekart_reviews">You have done %1$s EKart Reviews</string>
-    <string name="customer_qeuries">Customer Qeuries</string>
+    <string name="customer_qeuries"> അന്വേഷണങ്ങൾ</string>
     <string name="enter_your_query">Enter your query</string>
     <string name="order_id">Order Id:</string>
     <string name="delete_account">Delete account</string>

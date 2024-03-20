@@ -25,7 +25,7 @@ class ProfileViewModel @Inject constructor(
     private val authRepository: AuthRepository,
     private val storageRepository: StorageRepository
 ) : ViewModel() {
-    val user = UserModel("", "", "", "", "")
+    val user = UserModel("","", "", "", "", "")
     val userDetails = MutableLiveData<UserModel>()
     val userImage = MutableLiveData<String>()
     val userState = MutableLiveData<UserState>()

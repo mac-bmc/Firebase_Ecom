@@ -56,7 +56,7 @@ class BotViewModel @Inject constructor(
             val orderModel = firestoreRepository.getOrderForChat(orderId)
             Log.d("OrderforChatViewM", orderModel.toString())
             if (orderModel != null) {
-                val orderStatusInt = orderModel?.productDeliveryStatusCode
+                val orderStatusInt = orderModel.productDeliveryStatusCode
                 ifSucessfullOrderStatusFetch = true
                 ProductOrderDeliveryStatus.values().first { it.statusCode == orderStatusInt }.msg
 
@@ -78,7 +78,7 @@ class BotViewModel @Inject constructor(
             val productId = databaseRepository.getProductId(productName)
             Log.d("productId", productId.toString())
             if (productId != null) {
-                when (val productReview = firestoreRepository.getProductReview(productId!!)) {
+                when (val productReview = firestoreRepository.getProductReview(productId)) {
                     is Resource.Success -> {
                         ifSucessfullProductReviewFetch = true
                         productReview.data[0].productReview

@@ -1,15 +1,16 @@
 package com.example.firebaseecom.customerChat
 
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -21,11 +22,12 @@ import com.example.firebaseecom.model.BrainShopModel
 import com.example.firebaseecom.model.UserModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+
 @AndroidEntryPoint
 class BotFragment : Fragment() {
 
     private lateinit var botBinding: FragmentBotBinding
-    private lateinit var adapter: CustomerChatAdapter
+    private lateinit var adapter: ChatAdapter<BrainShopModel>
     private val sendKey = 0
     private var userData: UserModel? = null
     private val receiveKey = 1
@@ -35,27 +37,18 @@ class BotFragment : Fragment() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
 
-    private companion object {
-        fun newInstance() = BotFragment()
-    }
-
-    private lateinit var viewModel: BotViewModel
+    private companion object;
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
         botBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_bot, container, false)
         attachListeners()
         return botBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this)[BotViewModel::class.java]
-        // TODO: Use the ViewModel
-    }
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPreferences =
@@ -67,11 +60,12 @@ class BotFragment : Fragment() {
         editor.apply()
         chatViewModel = ViewModelProvider(this)[BotViewModel::class.java]
         val bundle = requireActivity().intent.extras
-        userData = if (bundle?.getSerializable("userData") != null) {
-            bundle.getSerializable("userData") as UserModel
+        userData = if (bundle?.getSerializable("userData", UserModel::class.java) != null) {
+            bundle.getSerializable("userData", UserModel::class.java)
         } else {
             null
         }
+
 
     }
 
@@ -85,8 +79,7 @@ class BotFragment : Fragment() {
                 if (sharedPreferences.getInt("orderStatus", 0) == 1) {
                     brainList.add(
                         BrainShopModel(
-                            chatViewModel.getOrderStatus(msgQuery),
-                            receiveKey
+                            chatViewModel.getOrderStatus(msgQuery), receiveKey
                         )
                     )
                     botBinding.progressBar.visibility = View.GONE
@@ -101,8 +94,7 @@ class BotFragment : Fragment() {
                 } else if (sharedPreferences.getInt("productRating", 0) == 1) {
                     brainList.add(
                         BrainShopModel(
-                            chatViewModel.getProductReviews(msgQuery),
-                            receiveKey
+                            chatViewModel.getProductReviews(msgQuery), receiveKey
                         )
                     )
                     botBinding.progressBar.visibility = View.GONE
@@ -145,13 +137,12 @@ class BotFragment : Fragment() {
 
     }
 
-    private fun attachListeners()
-    {
+    private fun attachListeners() {
         botBinding.apply {
             sendQuery.setOnClickListener {
                 sendToBrain(chatQuery.text.toString())
             }
-            adapter = CustomerChatAdapter(brainList, userData)
+            adapter = ChatAdapter(brainList, userData)
             chatView.adapter = adapter
             chatView.layoutManager =
                 LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
@@ -159,8 +150,6 @@ class BotFragment : Fragment() {
 
         }
     }
-
-
 
 
 }

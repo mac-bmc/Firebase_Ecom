@@ -119,7 +119,7 @@
     <string name="enter_your_product_experience">Enter your product experience</string>
     <string name="view_more">View More</string>
     <string name="anonymous">Anonymous</string>
-    <string name="ekart_review_points">Ekart Review History</string>
+    <string name="ekart_review_points"> Review History</string>
     <string name="you_have_done_7_ekart_reviews">You have done %1$s EKart Reviews</string>
     <string name="customer_qeuries">Customer Qeuries</string>
     <string name="enter_your_query">Enter your query</string>
@@ -130,4 +130,5 @@
     <string name="resendOtp">Resend Otp</string>
     <string name="enterotp">Enter OTP</string>
     <string name="talk_with_a_representative">Customer Care</string>
+    <string name="executive_is_being_assigned_to_you">A EzKart executive is being assigned to you</string>
 </resources>

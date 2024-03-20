@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import com.example.firebaseecom.R
 import com.example.firebaseecom.auth.SignUpActivity
+import com.example.firebaseecom.model.message.MessageModel
 import com.example.firebaseecom.utils.Resource
 import com.example.firebaseecom.utils.UserState
 import com.google.android.gms.tasks.Tasks
@@ -39,6 +40,8 @@ interface AuthRepository {
     suspend fun sendOtpCode(number: String, activity: SignUpActivity)
 
     suspend fun userDelete(password: String)
+
+    fun checkForSender(msg: MessageModel): Boolean
 
 }
 
@@ -223,6 +226,10 @@ class AuthRepositoryImpl @Inject constructor(
         }
 
 
+    }
+
+    override fun checkForSender(msg: MessageModel): Boolean {
+        return msg.sendUserId == firebaseAuth.currentUser!!.uid
     }
 
 
